@@ -1,0 +1,15 @@
+def print_sequence(n, current=1, count=1):
+
+    if n == current:
+
+        print(str(current) * count, end=', ')
+
+        return
+
+    print(str(current) * count, end=', ')
+
+    current += 1
+
+    count += 1
+
+    print_sequence(n, current, count)
