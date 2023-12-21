@@ -1,0 +1,81 @@
+def fill_spiral_array(n):
+
+    startRow = 0
+
+    startCol = 0
+
+    endRow = n - 1
+
+    endCol = n - 1
+
+    num = 1
+
+
+
+    array = [[0] * n for _ in range(n)]
+
+
+
+    while num <= n * n:
+
+        # Fill top row
+
+        for i in range(startCol, endCol + 1):
+
+            array[startRow][i] = num
+
+            num += 1
+
+        startRow += 1
+
+
+
+        # Fill right column
+
+        for i in range(startRow, endRow + 1):
+
+            array[i][endCol] = num
+
+            num += 1
+
+        endCol -= 1
+
+
+
+        # Fill bottom row
+
+        for i in range(endCol, startCol - 1, -1):
+
+            array[endRow][i] = num
+
+            num += 1
+
+        endRow -= 1
+
+
+
+        # Fill left column
+
+        for i in range(endRow, startRow - 1, -1):
+
+            array[i][startCol] = num
+
+            num += 1
+
+        startCol += 1
+
+
+
+    return array
+
+
+
+n = 5
+
+result = fill_spiral_array(n)
+
+
+
+for row in result:
+
+    print(row)
